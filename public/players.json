@@ -1,4 +1,4 @@
-const players = [
+[
   {
     "player_id": "p001",
     "image": "https://i.ibb.co/SwCN0dfj/image.png",
@@ -34,7 +34,7 @@ const players = [
   },
   {
     "player_id": "p004",
-    "image": "https://i.ibb.co/cS6bPx7w/image.png",
+    "image": "https://i.ibb.co/CrjzDvf/image.png",
     "name": "Mushfiqur Rahim",
     "country": "Bangladesh",
     "role": "Wicketkeeper-Batsman",
@@ -131,4 +131,4 @@ const players = [
     "bowling_style": "N/A",
     "price": 480000
   }
-];
+]

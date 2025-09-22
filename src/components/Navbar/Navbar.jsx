@@ -2,7 +2,7 @@ import React from 'react';
 import currencyImg from '../../assets/Currency.png'
 import logoPng from '../../assets/logo.png'
 
-const Navbar = () => {
+const Navbar = ({balance}) => {
     return (
         <div className="navbar w-10/12 mx-auto">
             <div className="navbar-start">
@@ -32,7 +32,7 @@ const Navbar = () => {
                         <li><a href="#">Schedules</a></li>
                     </ul>
                 </div>
-                <button className='flex gap-2 btn'><span>0</span> Coin <img src={currencyImg} alt="" /></button>
+                <button className='flex gap-2 btn'><span>${balance}</span> Coin <img src={currencyImg} alt="" /></button>
             </div>
 
 

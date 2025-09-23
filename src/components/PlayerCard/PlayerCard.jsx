@@ -3,20 +3,25 @@ import userImg from '../../assets/user.png'
 import flag from '../../assets/flag.png'
 import { toast } from 'react-toastify';
 
-const PlayerCard = ({ player, balance, setBalance,purchasedPlayer }) => {
+const PlayerCard = ({ player, balance, setBalance, purchasedPlayer, setPurchasedPlayer }) => {
     const { name, image, country, role, rating, batting_style, bowling_style, price } = player;
     const [isSelected, setIsSelected] = useState(true)
     const latestBalance = (player) => {
         const playerPrice = parseInt(player.price);
-        if(playerPrice>balance){
+        if (playerPrice > balance) {
             toast("Not Enough Balance")
-             isSelected(true);
+            isSelected(true);
             return;
         }
-       
+
         const newBalance = balance - playerPrice;
         setBalance(newBalance);
-        purchasedPlayer(player);
+        if (purchasedPlayer.length >= 6) {
+            toast("You Already Purchased 6 Players");
+            isSelected(true);
+            return;
+        }
+        setPurchasedPlayer([...purchasedPlayer, player]);
     }
 
     return (
@@ -48,7 +53,7 @@ const PlayerCard = ({ player, balance, setBalance,purchasedPlayer }) => {
                         <p className='font-semibold'>Price: $<span>{price}</span> USD</p>
                         <button disabled={!isSelected} onClick={() => {
                             latestBalance(player),
-                            setIsSelected(false)
+                                setIsSelected(false)
                         }} className="btn ">{isSelected ? "Choose Player" : "Selected"}</button>
                     </div>
                 </div>
